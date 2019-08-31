@@ -23,6 +23,18 @@
   color: #61dafb;
 }
 
+.post {
+  margin-top: 15px;
+}
+
+.post:nth-child(even) {
+  background-color: #cecece;
+}
+
+.post-title {
+  font-weight: 700;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

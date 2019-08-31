@@ -19,8 +19,8 @@ export default () => {
 
     const renderPost = (post, index) => {
         return(
-            <div key={index} class="post">
-                <div>{post.title}</div>
+            <div key={index} className="post">
+                <div className="post-title">{post.title}</div>
                 <div>{post.body}</div>
             </div>
         )
