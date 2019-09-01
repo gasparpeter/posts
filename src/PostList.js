@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import Post from "./Post";
 import  axios from 'axios';
 
 export default () => {
@@ -16,10 +17,7 @@ export default () => {
 
     const renderPost = (post, index) => {
         return(
-            <div key={index} className="post">
-                <div className="post-title">{post.title}</div>
-                <div>{post.body}</div>
-            </div>
+            <Post key={index} post={post}/>
         )
     };
 
