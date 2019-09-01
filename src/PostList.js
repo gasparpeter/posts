@@ -1,14 +1,23 @@
-import React, {useState, useEffect} from 'react';
+import React, { useEffect, useReducer} from 'react';
 import Post from "./Post";
 import  axios from 'axios';
+import PostListReducer, {SET_LIST} from './PostList.reducer';
+
 
 export default () => {
 
-    const [list, setList] = useState([]);
+
+    const [reducerList, dispatch] = useReducer(PostListReducer, []);
 
     const getList = async()=>{
       const {data} = await axios.get('https://jsonplaceholder.typicode.com/posts');
-      setList(data);
+
+      dispatch({
+          type: SET_LIST,
+          list: data
+      });
+
+
     };
 
     useEffect(()=>{
@@ -23,7 +32,7 @@ export default () => {
 
     return(
         <div>
-            {list.length > 0 && list.map(renderPost)}
+            {reducerList.length > 0 && reducerList.map(renderPost)}
         </div>
     )
 }
